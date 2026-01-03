@@ -1,0 +1,185 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(
+    circle at top,
+    #f6f1ff,
+    #e9e4ff,
+    #fceff6
+  );
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.35);
+  padding: 30px 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 40px rgba(180, 160, 255, 0.35);
+  backdrop-filter: blur(12px);
+  width: 90%;
+  max-width: 500px;
+}
+
+h1 {
+  color: #6b4eff;
+  text-shadow: 0 0 8px rgba(170, 150, 255, 0.4);
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;   /* untereinander */
+  align-items: center;
+  gap: 15px;
+}
+
+button {
+  background: linear-gradient(145deg, #c7b8ff, #f5b8d3);
+  border: none;
+  color: #3a2a5e;
+  font-size: 1rem;
+  padding: 12px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(180, 160, 255, 0.4);
+  min-width: 220px; /* schön gleichmäßig */
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 22px;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #b9f2d2, #8ddac0);
+  color: #1f4d3a;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: 0 0 15px rgba(120, 220, 180, 0.5);
+  transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(37, 211, 102, 0.8);
+}
+
+button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 25px rgba(200, 170, 255, 0.6);
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 22px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #d6ccff, #f2c6e0); /* weich & passend */
+  color: #3a2a5e;
+  text-decoration: none;
+  font-size: 0.95rem;
+  box-shadow: 0 0 15px rgba(180, 160, 255, 0.4);
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(190, 170, 255, 0.6);
+}
+
+#message {
+  margin-top: 50px;
+  font-size: 1.25rem;
+  color: #5a4aa8; /* sanftes Pastell-Lila */
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(160, 150, 255, 0.4);
+}
+
+.flower {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px auto;
+  display: none;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 0, 100, 0.4));
+  opacity: 0.7;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.flower span {
+  position: absolute;
+  right: 70%;
+  left: 30%;
+  width: 40px;
+  height: 60px;
+  background: radial-gradient(
+    circle at 50% 35%,
+    rgba(223, 93, 195, 0.976) 0%,
+    rgba(255, 0, 255, 0.836) 70%,
+    rgb(255, 0, 0) 100%
+  );
+  border-radius: 50% 50% 40% 40%;
+  transform-origin: bottom center;
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  animation: petalGlow 2.5s ease-in-out infinite alternate;
+}
+
+.flower span:nth-child(1) { transform: rotate(0deg) translateY(-45%); }
+.flower span:nth-child(2) { transform: rotate(45deg) translateY(-45%); }
+.flower span:nth-child(3) { transform: rotate(90deg) translateY(-45%); }
+.flower span:nth-child(4) { transform: rotate(135deg) translateY(-45%); }
+.flower span:nth-child(5) { transform: rotate(180deg) translateY(-45%); }
+.flower span:nth-child(6) { transform: rotate(225deg) translateY(-45%); }
+.flower span:nth-child(7) { transform: rotate(270deg) translateY(-45%); }
+.flower span:nth-child(8) { transform: rotate(315deg) translateY(-45%); }
+
+.flower::after {
+  content: "";
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 45px;
+  height: 45px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, #eaff00 0%, #ffaa00 70%);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(223, 4, 73, 0.5);
+  animation: corePulse 3s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes petalGlow {
+  from { opacity: 0.8; filter: drop-shadow(0 0 10px rgba(255, 100, 150, 0.4)); }
+  to { opacity: 1; filter: drop-shadow(0 0 20px rgba(255, 100, 150, 0.6)); }
+}
+
+@keyframes corePulse {
+  from { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+  to { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+
+button.move {
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+/* Mobile Anpassungen */
+@media (max-width: 240px) {
+  h1 { font-size: 1.2rem; }
+  button { font-size: 0.9rem; padding: 8px 15px; min-width: 70px; }
+}
